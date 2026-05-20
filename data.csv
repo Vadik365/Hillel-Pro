@@ -1,0 +1,7 @@
+type,name,category,price,quantity,email,prod_index,customer_index
+Product,Teddy Bear,Soft Toy,45,24,,,
+Product,Lego,construction,60,15,,,
+Customer,Joe,,,,joe@mail.com,,
+Customer,Monica,,,,monica@mail.com,,
+Order,,,,,,1,0
+Order,,,,,,2,1
