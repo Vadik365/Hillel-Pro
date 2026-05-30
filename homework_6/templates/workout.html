@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ workout.day }}</title>
+</head>
+<body>
+
+<h1>{{ workout.day }}</h1>
+
+<a href="{{ url_for('create_workout_day') }}">Back</a>
+
+<h2>Add Exercise</h2>
+
+<form method="POST">
+    <input type="text" name="exercise" placeholder="Exercise" required>
+    <input type="number" name="reps" placeholder="Reps" min="1" required>
+    <button type="submit">Add</button>
+</form>
+
+<h2>Exercises</h2>
+
+{% if workout.exercises %}
+
+    {% for exercise in workout.exercises %}
+        <form action="{{ url_for('toggle_exercise', day=workout.day, exercise_name=exercise.name) }}" method="POST">
+            <label>
+                <input
+                    type="checkbox"
+                    onchange="this.form.submit()"
+                    {% if exercise.done %} checked {% endif %}
+                >
+                {{ exercise.name }} ({{ exercise.reps }})
+            </label>
+        </form>
+    {% endfor %}
+
+    <form action="{{ url_for('reset_workout', day=workout.day) }}" method="POST">
+        <button type="submit">Reset all</button>
+    </form>
+
+{% else %}
+    <p>No exercises yet. Add one above.</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Planner</title>
+</head>
+<body>
+
+<h1>Create Workout Day</h1>
+
+<form method="POST">
+    <input type="text" name="day" placeholder="Workout day" required>
+    <button type="submit">Create</button>
+</form>
+
+<h2>Workout Days</h2>
+
+{% if workouts %}
+
+    {% for workout in workouts %}
+        <p>
+            <a href="{{ url_for('add_exercise', day=workout.day) }}">
+                {{ workout.day }}
+            </a>
+        </p>
+    {% endfor %}
+
+{% else %}
+    <p>No workout days yet. Create one above.</p>
+{% endif %}
+
+</body>
+</html>

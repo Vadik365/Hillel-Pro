@@ -1,0 +1,12 @@
+[
+    {
+        "day": "Chest Day",
+        "exercises": [
+            {
+                "name": "push-up",
+                "reps": "50",
+                "done": false
+            }
+        ]
+    }
+]
